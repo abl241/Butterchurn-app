@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, Fragment } from "react";
 import butterchurn from "butterchurn";
 import butterchurnPresets from "butterchurn-presets";
 import './Visualizer.css';
+import AudioInput from "./AudioInput";
 
 export default function Visualizer() {
   const canvasRef = useRef(null);
@@ -301,7 +302,7 @@ const copyPresetName = () => {
 
       {!fullscreen && (
         <div className="controls">
-          <button onClick={handleUseMic}>Use Microphone</button>
+          <AudioInput visualizer={visualizer} audioContext={audioContext}/>
           <input type="file" multiple accept="audio/*" onChange={handleFileInput} />
           <br /><br />
           <label>Preset: </label>
