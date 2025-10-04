@@ -14,9 +14,17 @@ function AudioInput({ visualizer, audioContext }) {
     });
   }, []);
 
+  const resumeAudio = async () => {
+  if (audioContext.state === "suspended") {
+    await audioContext.resume();
+  }
+  };
+
   const handleDeviceChange = async (event) => {
     const deviceId = event.target.value;
     setSelectedDeviceId(deviceId);
+
+    await resumeAudio();
 
     // stop old stream if it exists
     if (streamRef.current) {
