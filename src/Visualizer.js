@@ -97,7 +97,7 @@ export default function Visualizer() {
         const blacklist = ["Martin - mucus cervix", "Martin - fruit machine", "Milk Artist At our Best - FED - SlowFast Ft AdamFX n Martin - HD CosmoFX"];
         do {
           randomIndex = Math.floor(Math.random() * presetNames.length);
-        } while (presetNames[randomIndex] === currentPreset && presetNames.length > 1 && !blacklist.includes(presetNames[randomIndex]));
+        } while ((presetNames[randomIndex] === currentPreset && presetNames.length > 1) || blacklist.includes(presetNames[randomIndex]));
 
         const nextPreset = presetNames[randomIndex];
         setCurrentPreset(nextPreset);
