@@ -94,12 +94,13 @@ export default function Visualizer() {
     if (randomPresetOn) {
       const interval = setInterval(() => {
         let randomIndex;
-        const blacklist = ["Martin - mucus cervix", "Martin - fruit machine", "Milk Artist At our Best - FED - SlowFast Ft AdamFX n Martin - HD CosmoFX"];
+        const blacklist = ["martin - mucus cervix", "martin - fruit machine", "Milk Artist At our Best - FED - SlowFast Ft AdamFX n Martin - HD CosmoFX"];
         do {
           randomIndex = Math.floor(Math.random() * presetNames.length);
         } while (presetNames[randomIndex] === currentPreset || blacklist.includes(presetNames[randomIndex]));
 
         const nextPreset = presetNames[randomIndex];
+        console.log("Switching to preset:", nextPreset);
         setCurrentPreset(nextPreset);
         setPresetIndex(randomIndex);
         visualizer.loadPreset(butterchurnPresets.getPresets()[nextPreset], 2.0);
